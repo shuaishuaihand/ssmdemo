@@ -24,4 +24,11 @@
 	<select id="getEmps" resultType="com.agesun.mybatis.bean.Employee">
 		select * from employee
 	</select>
+	
+	
+	    <!--批量保存员工 -->
+	<insert id="addEmp">
+	    insert into employee(lastName,email,gender)
+        values(#{lastName},#{email},#{gender})
+	</insert>
 </mapper>

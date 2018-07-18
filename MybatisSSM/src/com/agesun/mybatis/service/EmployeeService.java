@@ -16,5 +16,8 @@ public interface EmployeeService {
 	public List<Employee> getEmps();
 	
 	public Employee getEmpById();
+	
+	public Integer batchEmp();
+	
 
 }

@@ -32,6 +32,14 @@
 		<!--mapperLocations: 指定mapper文件的位置-->
 		<property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"></property>
 	</bean>
+	
+	<!-- 配置一个可以批量执行的sqlSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	     <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	     <constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
+
+	
 	<!-- 扫描所有的mapper接口的实现，让这些mapper能够自动注入；
 	base-package：指定mapper接口的包名
 	 -->
@@ -39,11 +47,7 @@
 	 	<property name="basePackage" value="com.agesun.mybatis.dao"/>
 	 	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
-	<!--配置一个可以进行批量执行的sqlSession  -->
-	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
-		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
-	</bean> 
+	
 	<!-- spring事务管理 -->
 	<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>

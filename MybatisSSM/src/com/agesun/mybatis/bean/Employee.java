@@ -44,6 +44,17 @@ public class Employee implements Serializable{
 	
 	
 	
+	
+	
+
+	public Employee(String lastName, String email, String gender) {
+		super();
+		this.lastName = lastName;
+		this.email = email;
+		this.gender = gender;
+	}
+
+
 
 	public Department getDept() {
 		return dept;
